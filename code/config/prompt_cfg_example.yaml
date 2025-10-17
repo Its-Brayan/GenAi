@@ -1,0 +1,23 @@
+your_prompt_config_id:
+    description: "Add a short description here for documentation purposes."
+    instruction: "Describe the task"
+    role: |
+      Define Who the Ai should act as
+    context: "Provide optional background information"
+    output_constraints:
+       - keep responses to X words/paragraph
+       - use specific format (e.g., bullet points, numbered list)
+       - Avoid certain elements (e.g technical jargon, bullet points)
+    style_or_tone:
+       - define the voice (e.g professional, casual, friendly)
+       - specify language style (e.g plain language, converational)
+       - set boundaries (e.g avoid buzzwords, no hype)
+    output_format: "Specify structure like JSON, Markdown or custom format"
+    examples:
+       - "Provide one or more examples of good responses"
+    goal: |
+       - Describe the intended outcome, e.g "Help readers decide whether to 
+       read the full article" or "Generate engagement on social media"
+    reasoning_strategy: "CoT" # options: "CoT", "ReAct","Self-Ask", or omit for none
+
+
