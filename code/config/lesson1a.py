@@ -124,7 +124,7 @@ if __name__ == "__main__":
 
     # Define the prompt configuration key to use
     # You can change this to any key defined in your `prompt_config.yaml` file.
-    prompt_cfg_key = "summarization_prompt_cfg5"
+    prompt_cfg_key = "linkedin_post_prompt_cfg"
 
     main(prompt_config_key=prompt_cfg_key)
 

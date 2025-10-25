@@ -113,3 +113,4 @@ linkedin_post_prompt_cfg:
     - Do NOT use markdown formatting (e.g. **bold**). Use plain text and unicode bold as needed.
   goal: |
     Generate high engagement and drive the audience to read the full publication.
+  reasoning_strategy: "CoT"
