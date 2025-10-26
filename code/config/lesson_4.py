@@ -3,6 +3,7 @@ from paths import OUTPUTS_DIR
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
 from groq import Groq
+from langchain_groq import ChatGroq
 from utils import load_publication, save_text_to_file
 from langchain_core.output_parsers.pydantic import PydanticOutputParser
 
