@@ -145,7 +145,39 @@ def with_output_parsers(model : str = 'Groq'):
         os.path.join(OUTPUTS_DIR,f"with_output_parsers.md"),
         header=f"LLM response with output parsers for structured output",
     )
+def model_native_structured_output(model : str ="Groq"):
+    publication_content = load_publication()
+    prompt = """
+     provide a list of entities mentioned in the publication, an entity is either a model or a task
+        <publication>
+        {publication_content}
+        </publication>
+    """.format(
+        publication_content=publication_content
+    )
+    client = Groq(api_key=os.getenv("GROQ_API_KEY")).with_structured_output(Entities)
+    response = client.chat.completions.create(
+        messages = [
+            {
+                "role": "user",
+                "content": prompt
+            },
+        ],
+        model = "groq/compound"
+    )
+    response_content = response.choices[0].message.content
+    saved_text = f""" #prompt = {prompt}
+    #Response:
+    {response_content}
+    """
+    save_text_to_file(
+         saved_text,
+         os.path.join(OUTPUTS_DIR,f"model_native_structured_output.md"),
+            header=f"LLM response with model native structured output",
+    )
+
 if __name__ == "__main__":
     # no_structured_output()
     # with_prompting_structured_output(),
-    with_output_parsers()
+    # with_output_parsers(),
+    model_native_structured_output()
